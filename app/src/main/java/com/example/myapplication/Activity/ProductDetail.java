@@ -94,7 +94,7 @@ public class ProductDetail extends AppCompatActivity {
                     newProduct.setPrice(Integer.parseInt(price.getText().toString()));
                     newProduct.setBrand(brand.getText().toString());
                     newProduct.setDesc(description.getText().toString());
-//                    FirebaseController.makananReferences.push().setValue(product);
+//                    FirebaseController.productReferences.push().setValue(product);
                     FirebaseController.insertData(newProduct);
                     startActivity(intent);
                 }

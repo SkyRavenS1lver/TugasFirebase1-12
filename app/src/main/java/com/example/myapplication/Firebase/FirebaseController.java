@@ -17,7 +17,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class FirebaseController extends Application {
     private FirebaseDatabase database;
-    public static DatabaseReference makananReferences;
+    public static DatabaseReference productReferences;
 
 
     @Override
@@ -25,24 +25,24 @@ public class FirebaseController extends Application {
         super.onCreate();
         FirebaseApp.initializeApp(this);
         database = FirebaseDatabase.getInstance();
-        makananReferences = database.getReference(Product.class.getSimpleName());
+        productReferences = database.getReference(Product.class.getSimpleName());
         getAllProduct();
     }
 
     public static void insertData(Product product){
-        makananReferences.push().setValue(product);
+        productReferences.push().setValue(product);
     }
     public static void deleteData(Product product){
-        makananReferences.child(product.getKey()).removeValue();
+        productReferences.child(product.getKey()).removeValue();
     }
     public static void updateData(Product product){
-        makananReferences.child(product.getKey()).setValue(Product.convertProduct(product));
+        productReferences.child(product.getKey()).setValue(Product.convertProduct(product));
     }
 
 
 
     public void getAllProduct() {
-        makananReferences.addValueEventListener(new ValueEventListener() {
+        productReferences.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 ProductModel.productArrayList.clear();
