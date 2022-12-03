@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">PAPB17-11</string>
+    <string name="productKey">key</string>
+    <string name="productName">name</string>
+    <string name="productDesc">desc</string>
+    <string name="productPrice">price</string>
+    <string name="productBrand">brand</string>
+</resources>
